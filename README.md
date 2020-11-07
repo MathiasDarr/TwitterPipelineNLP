@@ -2,11 +2,8 @@
 
 ### This repository contains a data pipeline & analysis of twitter data pertaining to the 2020 presidential election ###
 
-### This project consists of ###
-* [Exploratory Data Analysis](eda/README.md)
-    
 
-
+   
 * Data Pipeline
     - Multithreaded java application that pushes twitter data into several destinations
         - Use the twitter4j library to stream tweets (requires twitter API keys)
