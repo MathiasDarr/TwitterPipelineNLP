@@ -1,7 +1,7 @@
 ### NLP Analysis ###
-
-### How do I Reproduce the NLP & Sentiment Analysis?    ###
-* The spark NLP analysis performed in this repository has the following dependencies
+The NLP analysis in this directory makes use of Stanford Core NLP, NLTK & Spark to perform.
+### How to perform NLP Analysis?    ###
+* Running the spark NLP analysis performed in this repository  has the following dependencies
     - Spark 2.4.6
     - Stanford CoreNLP
         - https://stanfordnlp.github.io/CoreNLP/download.html

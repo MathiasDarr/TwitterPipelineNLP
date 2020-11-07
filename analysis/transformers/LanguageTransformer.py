@@ -5,7 +5,7 @@ from pyspark.ml.param.shared import HasInputCol, HasOutputCol, Param, Params, Ty
 from pyspark.ml.util import DefaultParamsReadable, DefaultParamsWritable
 from pyspark import keyword_only
 
-from sparkNLP.utils.identify_language import detect_language
+from analysis.utils.identify_language import detect_language
 
 detect_language_udf = udf(lambda content: detect_language(content), StringType())
 

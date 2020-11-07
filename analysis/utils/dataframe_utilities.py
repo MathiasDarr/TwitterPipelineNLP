@@ -1,3 +1,9 @@
+"""This file contains utility functions for working with spark dataframes and the parquet file format used to save
+the data in s3.
+
+"""
+
+
 import findspark
 findspark.init()
 import pyspark as ps
@@ -33,11 +39,11 @@ def download_parquet_files(index):
 
 def create_tweets_dataframe(spark, index):
     '''
-    This function constructs a spark dataframe with the locally downloaded parquet files (downloaded from the download_parquet_files)
-    and the index from which to construct the dataframe.
+    This function constructs a spark dataframe with the locally downloaded parquet files (downloaded from the
+    download_parquet_files) and the index from which to construct the dataframe.
 
-    I will want to extend this to allow the creation of a dataframe with multiple idices/topics but will have to be cognizant of
-    the fact that there may be duplicates if I join data from multiple indices.
+    I will want to extend this to allow the creation of a dataframe with multiple idices/topics but will have to be
+    cognizant of the fact that there may be duplicates if I join data from multiple indices.
     '''
     parquet_files = []
     directory = 'tmp/{}'.format(index)
@@ -56,3 +62,13 @@ def create_tweets_dataframe(spark, index):
         df = df.union(dataf)
     return df
 
+
+def create_dataframe_from_parquet(spark, directory):
+    """
+    This function returns a dataframe from a parquet file in directory.
+    """
+    parquet_files = [file for file in os.listdir(directory) if file.split('.')[-1] == 'parquet']
+    parquet_files = ['{}/{}'.format(directory, file) for file in parquet_files]
+
+    dataframes = [spark.read.parquet(file) for file in parquet_files]
+    return dataframes[0]
