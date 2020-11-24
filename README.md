@@ -8,6 +8,7 @@
     * Data pipeline uses to airflow to schedule workflow that quer
 * [Spark ML NLP Analys](analysis/README.md)
     * Perform NLP analysis on tweets
-  
-  
+* [Elasticsearch query API](twitter-query-service/README.md)  
+    * Spring Boot API for querying tweets in elasticsearch
+        - makes use of the Java highlevel elasticsearch client
   
