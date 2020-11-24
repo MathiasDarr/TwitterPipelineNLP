@@ -42,7 +42,4 @@ public class TweetsAPI {
         List<TweetDTO>response = this.tweetsService.searchTweetsByKeyword(this.highLevelClient, keyword, lat, lng);
         return response;
     }
-
-
-
 }
