@@ -27,6 +27,9 @@ public class AppConfig {
         this.schemaRegistryUrl = arguments[1];
         this.elastic_search_host = arguments[2];
         this.elastic_search_port = Integer.parseInt(arguments[3]);
+        System.out.println("THE ELASTIC SEARCH HOST IS " + elastic_search_host);
+        System.out.println("THE ELASTIC SEARCH PORT IS " + elastic_search_port);
+
         topics = new ArrayList<>();
         topics.addAll(Arrays.asList(arguments).subList(4, arguments.length));
         this.applicationId = "my-app-v1.0.0"; //config.getString("kafka.streams.application.id");

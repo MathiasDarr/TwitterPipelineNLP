@@ -77,15 +77,16 @@ public class TweetsAvroProducerThread implements Runnable {
                 if(statusQueue.size()>0){
                     Status status = statusQueue.poll();
                     tweetCount +=1;
+                    System.out.println("status " + status.getText());
                     Tweet tweet = statusToTweet(status, tweetCount);
                     elasticSearchProducer.postTweet(tweet, targetTopic);
 //                    kafkaProducer.send(new ProducerRecord<>(targetTopic, tweet));
-
+                    System.out.println("Sebt");
                 }else{
                     Thread.sleep(200);
                 }
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println("FUCK U[P");
             }
         }
         close();

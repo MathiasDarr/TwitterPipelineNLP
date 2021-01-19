@@ -26,12 +26,13 @@ public class TwitterKafkaProducerMain {
 //    private TweetsAvroProducerThread tweetsProducer;
     private TweetStreamsThread tweetsThread;
     private final ElasticSearchProducer elasticSearchProducer;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         TwitterKafkaProducerMain app = new TwitterKafkaProducerMain(args);
         app.start();
     }
 
-    private TwitterKafkaProducerMain(String[] arguments){
+    private TwitterKafkaProducerMain(String[] arguments) throws InterruptedException {
+        Thread.sleep(10000);
         AppConfig appConfig = new AppConfig(ConfigFactory.load(), arguments);
         int number_of_topics = appConfig.getTopics().size();
         latch = new CountDownLatch(number_of_topics+1);

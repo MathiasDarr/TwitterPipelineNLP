@@ -23,7 +23,7 @@ public class ElasticSearchProducer {
         }else{
             scheme="https";
         }
-        RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost("localhost", 29200, "http")));
+        RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(new HttpHost(host, port, scheme)));
         this.client = client;
 //        this.client = new RestHighLevelClient(RestClient.builder(new HttpHost(this.host, this.port, scheme)));
     }
